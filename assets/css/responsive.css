@@ -1,0 +1,34 @@
+/* Responsive styles for tablets and phones */
+
+@media (max-width: 1024px) {
+    .modules {
+        justify-content: center;
+    }
+    .module {
+        flex-basis: 45%;
+        margin-bottom: 15px;
+    }
+    header > h1 {
+        font-size: 2rem;
+    }
+    header > h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .modules {
+        flex-direction: column;
+        align-items: center;
+    }
+    .module {
+        flex-basis: 90%;
+        margin-bottom: 10px;
+    }
+    header > h1 {
+        font-size: 1.5rem;
+    }
+    header > h2 {
+        font-size: 1rem;
+    }
+}
