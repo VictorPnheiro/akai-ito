@@ -1,0 +1,258 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+body:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 3px;
+    height: 100%;
+    background: #c00;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #c00 10%,
+        #c00 90%,
+        transparent 100%
+    );
+    box-shadow: 0 0 15px rgba(192, 0, 0, 0.7), 0 0 30px rgba(192, 0, 0, 0.3);
+    z-index: 0;
+    animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.scroll {
+    position: relative;
+    width: 510px;
+    height: 136px;
+    background: #f1e0bf;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.scroll.closed {
+    height: 80px;
+    background: linear-gradient(135deg, #f1e0bf 0%, #d9c8a5 100%);
+}
+
+.scroll.open {
+    height: 510px;
+    padding: 34px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c00 transparent;
+}
+
+.scroll.open::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scroll.open::-webkit-scrollbar-thumb {
+    background-color: #c00;
+    border-radius: 2px;
+}
+
+.scroll.open::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.ribbon-bow {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 51px;
+    height: 51px;
+    background: transparent;
+    transition: all 0.5s ease;
+}
+
+.scroll.closed .ribbon-bow:before {
+    content: "♥";
+    position: absolute;
+    color: #c00;
+    font-size: 68px;
+    line-height: 68px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.scroll.open .ribbon-bow {
+    background: #c00;
+    transform: rotate(45deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.scroll.open .ribbon-bow:before,
+.scroll.open .ribbon-bow:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #c00;
+    border-radius: 3px;
+}
+
+.scroll.open .ribbon-bow:before {
+    transform: rotate(90deg);
+}
+
+.scroll.open .ribbon-bow:after {
+    transform: rotate(180deg);
+}
+
+.ribbon-side {
+    position: absolute;
+    top: 85px;
+    right: 0;
+    width: 51px;
+    height: calc(100% - 85px);
+    background: #c00;
+    transition: all 0.5s ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+}
+
+.scroll.open .ribbon-side {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.scroll.closed .ribbon-bow {
+    top: 10px;
+    right: 10px;
+}
+
+.scroll.open .ribbon-bow {
+    top: 20px;
+    right: 15px;
+}
+
+.content {
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.content h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #c00;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.scroll.open .content {
+    opacity: 1;
+}
+
+.closed-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Dancing Script", cursive;
+    font-size: 34px;
+    color: #000;
+    text-align: center;
+    width: 100%;
+}
+
+.scroll.open .closed-message {
+    display: none;
+}
+
+.poem {
+    font-size: 23px;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 20px;
+    font-family: "Dancing Script", cursive;
+}
+
+@media (max-width: 1024px) {
+    .scroll {
+        width: 80%;
+        height: 120px;
+    }
+
+    .scroll.open {
+        height: 80vh;
+        padding: 20px;
+    }
+
+    .content h1,
+    .poem {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .scroll {
+        width: 95%;
+        height: 100px;
+    }
+
+    .scroll.open {
+        height: 70vh;
+        padding: 15px;
+    }
+
+    .content h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .poem {
+        font-size: 16px;
+    }
+
+    .closed-message {
+        font-size: 24px;
+    }
+
+    .ribbon-bow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll.closed .ribbon-bow:before {
+        font-size: 50px;
+    }
+}

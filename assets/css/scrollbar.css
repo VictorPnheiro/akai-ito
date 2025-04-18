@@ -1,0 +1,22 @@
+/* Scrollbar styles for minimalistic look and rgb(204, 0, 78) color */
+
+/* Webkit browsers */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(204, 0, 78);
+    border-radius: 3px;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(204, 0, 78) transparent;
+}
