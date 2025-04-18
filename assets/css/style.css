@@ -12,7 +12,7 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas: "header" "main" "footer";
 
-    background-image: url('../image/akai-ito.png');
+    background-image: url("../image/akai-ito.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -73,21 +73,6 @@ hr {
     margin-top: 0px;
 }
 
-footer {
-    grid-area: footer;
-    background-color: aquamarine;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 1.2rem;
-    padding-right: 20px;
-    color: #444;
-
-    /* Sempre grudado no final da página */
-    /* position: sticky;
-    bottom: 0px; */
-}
-
 .modules {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -132,11 +117,23 @@ footer {
     background-color: #4caf50;
 }
 
-.module.red:hover {
-    background-color: #f44336;
+.module.green {
+    border: 5px solid #4caf50;
+}
+
+.module.green > h3 {
+    background-color: #4caf50;
 }
 
 .module.blue:hover {
+    background-color: #2196f3;
+}
+
+.module.blue {
+    border: 5px solid #2196f3;
+}
+
+.module.blue > h3 {
     background-color: #2196f3;
 }
 
@@ -144,7 +141,23 @@ footer {
     background-color: #9c27b0;
 }
 
+.module.purple {
+    border: 5px solid #9c27b0;
+}
+
+.module.purple > h3 {
+    background-color: #9c27b0;
+}
+
 .module.orange:hover {
+    background-color: #ff9800;
+}
+
+.module.orange {
+    border: 5px solid #ff9800;
+}
+
+.module.orange > h3 {
     background-color: #ff9800;
 }
 
@@ -152,7 +165,23 @@ footer {
     background-color: #1b5e20;
 }
 
+.module.darkgreen {
+    border: 5px solid #1b5e20;
+}
+
+.module.darkgreen > h3 {
+    background-color: #1b5e20;
+}
+
 .module.darkred:hover {
+    background-color: #b71c1c;
+}
+
+.module.darkred {
+    border: 5px solid #b71c1c;
+}
+
+.module.darkred > h3 {
     background-color: #b71c1c;
 }
 
@@ -160,15 +189,28 @@ footer {
     background-color: #0d47a1;
 }
 
+.module.darkblue {
+    border: 5px solid #0d47a1;
+}
+
+.module.darkblue > h3 {
+    background-color: #0d47a1;
+}
+
 .module.darkmagenta:hover {
     background-color: #8b008b;
 }
 
-.module.green {
-    border: 5px solid #4caf50;
+.module.darkmagenta {
+    border: 5px solid #8b008b;
 }
-.module.green > h3 {
-    background-color: #4caf50;
+
+.module.darkmagenta > h3 {
+    background-color: #8b008b;
+}
+
+.module.red:hover {
+    background-color: #f44336;
 }
 
 .module.red {
@@ -176,53 +218,4 @@ footer {
 }
 .module.red > h3 {
     background-color: #f44336;
-}
-
-.module.blue {
-    border: 5px solid #2196f3;
-}
-.module.blue > h3 {
-    background-color: #2196f3;
-}
-
-.module.purple {
-    border: 5px solid #9c27b0;
-}
-.module.purple > h3 {
-    background-color: #9c27b0;
-}
-
-.module.orange {
-    border: 5px solid #ff9800;
-}
-.module.orange > h3 {
-    background-color: #ff9800;
-}
-
-.module.darkgreen {
-    border: 5px solid #1b5e20;
-}
-.module.darkgreen > h3 {
-    background-color: #1b5e20;
-}
-
-.module.darkred {
-    border: 5px solid #b71c1c;
-}
-.module.darkred > h3 {
-    background-color: #b71c1c;
-}
-
-.module.darkblue {
-    border: 5px solid #0d47a1;
-}
-.module.darkblue > h3 {
-    background-color: #0d47a1;
-}
-
-.module.darkmagenta {
-    border: 5px solid #8b008b;
-}
-.module.darkmagenta > h3 {
-    background-color: #8b008b;
 }
